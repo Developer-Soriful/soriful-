@@ -30,7 +30,7 @@ const words = [
 
 const counterItems = [
   { value: 2, suffix: "+", label: "Years of Experience" },
-  { value: 'Some', suffix: "+", label: "Satisfied Clients" },
+  { value: "Some", suffix: "+", label: "Satisfied Clients" },
   { value: 10, suffix: "+", label: "Completed Projects" },
   { value: 90, suffix: "%", label: "Client Retention Rate" },
 ];
@@ -91,24 +91,30 @@ const abilities = [
 
 const techStackImgs = [
   {
-    name: "React Developer",
+    name: "React ",
     imgPath: "/images/logos/react.png",
   },
   {
-    name: "C++ Programmer",
-    imgPath: "/images/logos/responsive.png",
-  },
-  {
-    name: "Backend Developer",
+    name: "Node",
     imgPath: "/images/logos/node.png",
   },
+
   {
-    name: "Interactive Developer",
-    imgPath: "/images/logos/three.png",
+    name: "Express",
+    imgPath: "/images/logos/expressjs.png",
   },
   {
-    name: "Project Manager",
-    imgPath: "/images/logos/git.svg",
+    name: "MongoDB",
+    imgPath: "/images/logos/mongodb.png",
+  },
+  {
+    name: "Firebase",
+    imgPath: "/images/logos/firebase.png",
+  },
+
+  {
+    name: "C++",
+    imgPath: "/images/logos/cpp.png",
   },
 ];
 
