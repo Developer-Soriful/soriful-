@@ -111,9 +111,17 @@ const techStackImgs = [
     name: "Firebase",
     imgPath: "/images/logos/firebase.png",
   },
+  {
+    name: "ES6",
+    imgPath: "/images/logos/js.png",
+  },
+  {
+    name: "Tailwind",
+    imgPath: "/images/logos/tailwind.png",
+  },
 
   {
-    name: "C++",
+    name: "CPP",
     imgPath: "/images/logos/cpp.png",
   },
 ];
