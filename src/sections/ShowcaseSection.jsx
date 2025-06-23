@@ -62,6 +62,24 @@ const AppShowcase = () => {
                 responsive, and interactive user experience.
               </p>
             </div>
+            <div className="flex gap-3 mt-2">
+              <a
+                href="https://your-live-demo-link.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors text-sm font-semibold shadow"
+              >
+                Live Demo
+              </a>
+              <a
+                href="https://github.com/yourusername/your-repo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-1 rounded bg-gray-800 text-white hover:bg-gray-900 transition-colors text-sm font-semibold shadow"
+              >
+                GitHub
+              </a>
+            </div>
           </div>
 
           <div className="project-list-wrapper overflow-hidden">
@@ -73,6 +91,24 @@ const AppShowcase = () => {
                 />
               </div>
               <h2>The Library Management Platform</h2>
+              <div className="flex gap-3 mt-2">
+                <a
+                  href="https://your-live-demo-link.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors text-sm font-semibold shadow"
+                >
+                  Live Demo
+                </a>
+                <a
+                  href="https://github.com/yourusername/your-repo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-1 rounded bg-gray-800 text-white hover:bg-gray-900 transition-colors text-sm font-semibold shadow"
+                >
+                  GitHub
+                </a>
+              </div>
             </div>
 
             <div className="project" ref={ycDirectoryRef}>
@@ -80,6 +116,24 @@ const AppShowcase = () => {
                 <img src="/images/project3.png" alt="YC Directory App" />
               </div>
               <h2>YC Directory - A Startup Showcase App</h2>
+              <div className="flex gap-3 mt-2">
+                <a
+                  href="https://your-live-demo-link.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors text-sm font-semibold shadow"
+                >
+                  Live Demo
+                </a>
+                <a
+                  href="https://github.com/yourusername/your-repo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-1 rounded bg-gray-800 text-white hover:bg-gray-900 transition-colors text-sm font-semibold shadow"
+                >
+                  GitHub
+                </a>
+              </div>
             </div>
           </div>
         </div>
