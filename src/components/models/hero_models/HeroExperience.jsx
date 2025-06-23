@@ -13,11 +13,14 @@ const HeroExperience = () => {
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
   // Memoize group scale and position
-  const roomProps = useMemo(() => ({
-    scale: isMobile ? 0.7 : 1,
-    position: [0, -3.5, 0],
-    rotation: [0, -Math.PI / 4, 0]
-  }), [isMobile]);
+  const roomProps = useMemo(
+    () => ({
+      scale: isMobile ? 0.7 : 1,
+      position: [0, -3.5, 0],
+      rotation: [0, -Math.PI / 4, 0],
+    }),
+    [isMobile]
+  );
 
   return (
     <Canvas
@@ -44,7 +47,12 @@ const HeroExperience = () => {
       <Suspense
         fallback={
           <Html center>
-            <div style={{ color: "white", fontSize: "18px" }}>Loading 3D Scene...</div>
+            <div className="h-screen w-full flex flex-col items-center justify-center bg-transparent">
+              <div className="w-14 h-14 border-4 border-t-teal-400 border-b-teal-400 border-l-gray-800 border-r-gray-800 rounded-full animate-spin"></div>
+              <p className="mt-4 text-gray-300 text-lg font-medium animate-pulse">
+                Loading...
+              </p>
+            </div>
           </Html>
         }
       >
