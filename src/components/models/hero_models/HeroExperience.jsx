@@ -1,38 +1,61 @@
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useMediaQuery } from "react-responsive";
+import { Suspense, useMemo } from "react";
 
 import { Room } from "./Room";
 import HeroLights from "./HeroLights";
 import Particles from "./Particles";
-import { Suspense } from "react";
 
 const HeroExperience = () => {
+  // Detect device type once (to prevent frequent re-render)
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
+  // Memoize group scale and position
+  const roomProps = useMemo(() => ({
+    scale: isMobile ? 0.7 : 1,
+    position: [0, -3.5, 0],
+    rotation: [0, -Math.PI / 4, 0]
+  }), [isMobile]);
+
   return (
-    <Canvas camera={{ position: [0, 0, 15], fov: 45 }}>
-      {/* deep blue ambient */}
+    <Canvas
+      frameloop="demand" // only renders when needed
+      dpr={[1, 1.5]} // device pixel ratio for performance
+      camera={{ position: [0, 0, 15], fov: 45 }}
+      gl={{ antialias: false, powerPreference: "low-power" }} // render optimization
+    >
+      {/* Ambient light (deep blue tone) */}
       <ambientLight intensity={0.2} color="#1a1a40" />
-      {/* Configure OrbitControls to disable panning and control zoom based on device type */}
+
+      {/* Orbit Controls */}
       <OrbitControls
-        enablePan={false} // Prevents panning of the scene
-        enableZoom={!isTablet} // Disables zoom on tablets
-        maxDistance={20} // Maximum distance for zooming out
-        minDistance={5} // Minimum distance for zooming in
-        minPolarAngle={Math.PI / 5} // Minimum angle for vertical rotation
-        maxPolarAngle={Math.PI / 2} // Maximum angle for vertical rotation
+        makeDefault
+        enablePan={false}
+        enableZoom={!isTablet}
+        maxDistance={20}
+        minDistance={5}
+        minPolarAngle={Math.PI / 5}
+        maxPolarAngle={Math.PI / 2}
       />
 
-      <Suspense fallback={null}>
+      {/* Suspense fallback loader */}
+      <Suspense
+        fallback={
+          <Html center>
+            <div style={{ color: "white", fontSize: "18px" }}>Loading 3D Scene...</div>
+          </Html>
+        }
+      >
+        {/* Lights */}
         <HeroLights />
-        <Particles count={100} />
-        <group
-          scale={isMobile ? 0.7 : 1}
-          position={[0, -3.5, 0]}
-          rotation={[0, -Math.PI / 4, 0]}
-        >
+
+        {/* Particles (optimized count) */}
+        <Particles count={30} />
+
+        {/* Room Group */}
+        <group {...roomProps}>
           <Room />
         </group>
       </Suspense>
