@@ -1,12 +1,50 @@
-# React + Vite
+<h1 align="center">💼 Soriful's Developer Portfolio</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  A modern, animated, and interactive personal portfolio website <br />
+  built with <strong>React</strong>, <strong>Tailwind CSS</strong>, <strong>Three.js</strong>, and <strong>GSAP</strong> to showcase skills, projects, and passion for web development.
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  <a href="https://your-portfolio-live-link.com" target="_blank">
+    🔗 View Live Demo
+  </a>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Technologies Used
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<div align="center">
+  <img src="https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react&logoColor=61dafb" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38bdf8?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+  <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white" />
+</div>
+
+---
+
+## 📸 Screenshots
+
+| Desktop View | Mobile View |
+|--------------|-------------|
+| <img src="https://i.imgur.com/fsokl8K.png"> | <img src="https://i.imgur.com/tpj9dZn.png"> |
+
+> 📷 Add your own screenshots in a `screenshots/` folder.
+
+---
+
+## ✨ Key Features
+
+- 🌐 **3D Hero Section** built with Three.js and React Three Fiber
+- 🎯 **GSAP Animations** for smooth entrance and scroll effects
+- 💻 Fully **Responsive Design** (Mobile + Tablet + Desktop)
+- 🧠 About section with education, skills, and personal info
+- 🧰 Projects section listing all your completed works
+- 📞 Contact form with call-to-action
+- 🎨 Clean and minimal UI with custom styling
+
+---
+
+## 📁 Folder Structure
+
