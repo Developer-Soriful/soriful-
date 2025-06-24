@@ -49,22 +49,23 @@ const AppShowcase = () => {
         <div className="showcaselayout">
           <div ref={rydeRef} className="first-project-wrapper">
             <div className="image-wrapper">
-              <img src="/images/logos/webmobile.jpg" alt="Ryde App Interface" />
+              <img src="/images/1.png" />
             </div>
             <div className="text-content">
               <h2>
-                Ryde — a responsive, interactive web application that simplifies
-                ride booking with real-time updates and a user-first design.
+                TutorHub — a responsive, interactive web application that
+                streamlines tutor booking with real-time scheduling, secure
+                access, and a student-focused experience.
               </h2>
               <p className="text-white-50 md:text-xl">
-                Developed using React for powerful state management and
-                TailwindCSS for consistent styling — ensuring an intuitive,
-                responsive, and interactive user experience.
+                Developed using React for dynamic state management and
+                TailwindCSS for consistent, utility-first styling — delivering a
+                smooth, responsive, and user-friendly booking experience.
               </p>
             </div>
             <div className="flex gap-3 mt-2">
               <a
-                href="https://your-live-demo-link.com"
+                href="https://assignment-11-19334.web.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors text-sm font-semibold shadow"
@@ -72,7 +73,7 @@ const AppShowcase = () => {
                 Live Demo
               </a>
               <a
-                href="https://github.com/yourusername/your-repo"
+                href="https://github.com/Developer-Soriful/Booking-Tutor"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-1 rounded bg-gray-800 text-white hover:bg-gray-900 transition-colors text-sm font-semibold shadow"
