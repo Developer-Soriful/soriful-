@@ -205,7 +205,7 @@ const AppShowcase = () => {
 
       {/* Project Details Modal */}
       {isModalOpen && selectedProject && (
-        <div className="absolute top-[-35%] z-10 inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="absolute top-[-35%] inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-gray-900 border border-gray-700 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="p-8">
               {/* Header */}
@@ -223,8 +223,8 @@ const AppShowcase = () => {
 
               {/* Project Image */}
               <div className="mb-6">
-                <img 
-                  src={selectedProject.image} 
+                <img
+                  src={selectedProject.image}
                   alt={selectedProject.name}
                   className="w-full h-64 object-cover rounded-xl shadow-lg"
                 />

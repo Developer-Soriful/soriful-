@@ -103,11 +103,11 @@ const TechStack = () => {
     <section id="skills" className="flex-center md:mt-40 mt-20 section-padding xl:px-0">
       <div className="w-full h-full md:px-20 px-5">
         <div className="tech-title">
-          <TitleHeader
+        <TitleHeader
             title="My Technical Skills & Expertise"
             sub="🛠️ Technologies I Master"
-          />
-        </div>
+        />
+      </div>
 
         {/* Skills with Progress Bars */}
         <div className="skills-section mt-32 lg:mt-40">
@@ -117,7 +117,7 @@ const TechStack = () => {
               const displayedSkills = isExpanded ? category.skills : category.skills.slice(0, 3);
               const hasMoreSkills = category.skills.length > 3;
 
-              return (
+          return (
                 <div key={catIndex} className="space-y-6 md:space-y-8">
                   <h4 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-center text-blue-50 mb-8 lg:mb-10">
                     {category.category}
@@ -209,13 +209,13 @@ const TechStack = () => {
                       >
                         {isExpanded ? "See Less" : `See More (+${category.skills.length - 3})`}
                       </button>
-                    </div>
+              </div>
                   )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
       </div>
     </section>
   );
