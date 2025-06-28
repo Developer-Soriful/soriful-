@@ -35,46 +35,46 @@ const AppShowcase = () => {
     },
     {
       id: 2,
-      name: "Library Management Platform",
-      image: "/images/project2.png",
-      liveDemo: "https://library-management-demo.web.app",
-      github: "https://github.com/Developer-Soriful/Library-Management",
-      description: "A comprehensive library management system with book tracking, user management, and automated notifications.",
+      name: "Recipe Book Hub",
+      image: "/Book_recipe.png",
+      liveDemo: "https://recipe-book-app-steel.vercel.app",
+      github: "https://github.com/Developer-Soriful/Recipe-book-app",
+      description: "A comprehensive recipe management platform with cooking instructions, ingredient tracking, and meal planning features.",
       techStack: ["React", "Node.js", "MongoDB", "Express.js", "JWT"],
-      briefDescription: "This platform provides librarians and users with a complete solution for managing books, memberships, and borrowing processes. It includes automated notifications and detailed reporting.",
+      briefDescription: "Recipe Book Hub is a complete solution for food enthusiasts to discover, save, and share recipes. It features detailed cooking instructions, ingredient management, nutritional information, and meal planning capabilities with user-friendly interface.",
       challenges: [
-        "Designing efficient database schema for complex relationships",
-        "Implementing role-based access control",
-        "Creating automated notification system",
-        "Optimizing search and filter functionality"
+        "Designing efficient database schema for recipe ingredients and instructions",
+        "Implementing user authentication and recipe sharing system",
+        "Creating responsive design for recipe cards and cooking steps",
+        "Optimizing search and filter functionality for recipes"
       ],
       improvements: [
-        "Add barcode scanning feature",
-        "Implement advanced analytics dashboard",
-        "Create mobile app for users",
-        "Add multi-language support"
+        "Add recipe rating and review system",
+        "Implement meal planning calendar",
+        "Create shopping list generator",
+        "Add recipe video tutorials"
       ]
     },
     {
       id: 3,
-      name: "YC Directory",
-      image: "/images/project3.png",
-      liveDemo: "https://yc-directory-demo.web.app",
-      github: "https://github.com/Developer-Soriful/YC-Directory",
-      description: "A startup showcase platform featuring Y Combinator companies with detailed information and filtering capabilities.",
-      techStack: ["React", "TypeScript", "TailwindCSS", "Vite", "React Query"],
-      briefDescription: "YC Directory is a comprehensive showcase of Y Combinator startups, providing detailed company information, funding data, and advanced filtering options for investors and researchers.",
+      name: "App Store Hub",
+      image: "/App_store.png",
+      liveDemo: "https://spontaneous-gumption-cdc712.netlify.app/",
+      github: "https://github.com/Developer-Soriful/App-Store-Hub",
+      description: "A comprehensive app discovery platform featuring mobile applications with detailed information, ratings, and download statistics.",
+      techStack: ["React", "TailwindCSS", "Vite"],
+      briefDescription: "App Store Hub is a comprehensive platform for discovering and exploring mobile applications. It provides detailed app information, user ratings, download statistics, and advanced filtering options for users to find the perfect apps for their needs.",
       challenges: [
-        "Handling large datasets efficiently",
-        "Implementing complex filtering and search",
-        "Creating responsive design for data-heavy interface",
-        "Optimizing performance with virtual scrolling"
+        "Handling large datasets of app information efficiently",
+        "Implementing complex filtering and search for apps",
+        "Creating responsive design for app showcase interface",
+        "Optimizing performance with virtual scrolling for app lists"
       ],
       improvements: [
-        "Add real-time data updates",
-        "Implement advanced analytics",
-        "Create investor dashboard",
-        "Add company comparison features"
+        "Add real-time app data updates",
+        "Implement advanced app analytics",
+        "Create developer dashboard",
+        "Add app comparison features"
       ]
     }
   ];
@@ -120,13 +120,13 @@ const AppShowcase = () => {
   }, []);
 
   return (
-    <div id="work" ref={sectionRef} className="app-showcase">
+    <div id="work" ref={sectionRef} className="app-showcase relative">
       <div className="w-full">
         <div className="showcaselayout">
           {/* Main Project */}
-          <div className="first-project-wrapper">
-            <div className="project-card">
-              <div className="image-wrapper">
+          <div className="first-project-wrapper ">
+            <div className="project project-card ">
+              <div className="image-wrapper rounded-xl bg-[#FFEFDB]">
                 <img src={projects[0].image} alt={projects[0].name} />
               </div>
               <div className="text-content">
@@ -205,7 +205,7 @@ const AppShowcase = () => {
 
       {/* Project Details Modal */}
       {isModalOpen && selectedProject && (
-        <div className="absolute top-[-35%] inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-gray-900 border border-gray-700 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="p-8">
               {/* Header */}

@@ -32,7 +32,7 @@ const NavBar = () => {
   };
 
   return (
-    <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
+    <header className={` navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
       <div className="inner">
         {/* Desktop Logo */}
         <a href="#hero" className="logo ">
