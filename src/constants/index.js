@@ -195,7 +195,7 @@ const expCards = [
     imgPath: "/images/logos/cpp.png",
     logoPath: "/images/logos/cpp.png",
     title: "C++",
-    date: "May 2023 - April 2024",
+    date: "Aug 2023 - April 2024",
     responsibilities: [
       "Developed high-performance system-level applications using C++, focusing on memory efficiency and speed.",
       "Implemented complex algorithms and data structures to optimize backend logic and processing time.",
