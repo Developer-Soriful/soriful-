@@ -5,6 +5,7 @@ import { navLinks } from "../constants";
 const NavBar = () => {
   // track if the user has scrolled down the page
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // create an event listener for when the user scrolls
@@ -22,13 +23,26 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
       <div className="inner">
-        <a href="#hero" className="logo">
+        {/* Desktop Logo */}
+        <a href="#hero" className="logo ">
           Soriful Islam
         </a>
 
+        {/* Mobile Logo */}
+        
+
+        {/* Desktop Navigation */}
         <nav className="desktop">
           <ul>
             {navLinks.map(({ link, name }) => (
@@ -42,12 +56,96 @@ const NavBar = () => {
           </ul>
         </nav>
 
-        <a href="#contact" className="contact-btn group">
+        {/* Mobile Menu Button */}
+        <button
+          onClick={toggleMobileMenu}
+          className="lg:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 z-[60] cursor-pointer hover:scale-110 transition-transform duration-200"
+        >
+          <span 
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${
+              mobileMenuOpen ? 'rotate-45 translate-y-2' : ''
+            }`}
+          />
+          <span 
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${
+              mobileMenuOpen ? 'opacity-0' : ''
+            }`}
+          />
+          <span 
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${
+              mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
+            }`}
+          />
+        </button>
+
+        {/* Desktop Contact Button */}
+        <a href="#contact" className="contact-btn group hidden lg:flex">
           <div className="inner">
             <span>Contact me</span>
           </div>
         </a>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`lg:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[70] transition-opacity duration-300 ease-in-out ${
+          mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={closeMobileMenu}
+      />
+
+      {/* Mobile Navigation Menu */}
+      <nav 
+        className={`lg:hidden fixed top-0 right-0 h-full w-80 bg-black-100 border-l border-white/10 z-[80] transform transition-transform duration-300 ease-in-out shadow-2xl ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Mobile Menu Header */}
+          <div className="flex items-center justify-between p-6 border-b border-white/10">
+            <h3 className="text-xl font-bold text-white">Menu</h3>
+            <button
+              onClick={closeMobileMenu}
+              className="text-white hover:text-blue-50 transition-colors duration-200 cursor-pointer hover:scale-110 p-1"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobile Navigation Links */}
+          <div className="flex-1 p-6">
+            <ul className="space-y-6">
+              {navLinks.map(({ link, name }, index) => (
+                <li key={name}>
+                  <a 
+                    href={link}
+                    onClick={closeMobileMenu}
+                    className="block text-lg font-medium text-white hover:text-blue-50 transition-all duration-300 transform hover:translate-x-2 hover:scale-105 cursor-pointer py-2 px-3 rounded-lg hover:bg-white/5"
+                    style={{
+                      animationDelay: `${index * 100}ms`
+                    }}
+                  >
+                    {name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Mobile Contact Button */}
+          <div className="p-6 border-t border-white/10">
+            <a 
+              href="#contact"
+              onClick={closeMobileMenu}
+              className="block w-full py-3 px-6 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold rounded-lg text-center transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl"
+            >
+              Contact me
+            </a>
+          </div>
+        </div>
+      </nav>
     </header>
   );
 }

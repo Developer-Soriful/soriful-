@@ -4,6 +4,10 @@ const navLinks = [
     link: "#work",
   },
   {
+    name: "About Me",
+    link: "#about",
+  },
+  {
     name: "Experience",
     link: "#experience",
   },
@@ -176,7 +180,7 @@ const expCards = [
   },
   {
     review:
-      "Soriful’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
+      "Soriful's contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
     imgPath: "/images/logos/javascript.png",
     logoPath: "/images/logos/javascript.png",
     title: "MERN Stack Developer",
@@ -225,7 +229,7 @@ const testimonials = [
     name: "Esther Howard",
     mentions: "@estherhoward",
     review:
-      "I can’t say enough good things about Soriful. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
+      "I can't say enough good things about Soriful. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
     imgPath: "/images/client1.png",
   },
   {
@@ -246,14 +250,14 @@ const testimonials = [
     name: "Marvin McKinney",
     mentions: "@marvinmckinney",
     review:
-      "Soriful was a pleasure to work with. He turned our outdated website into a fresh, intuitive platform that’s both modern and easy to navigate. Fantastic work overall.",
+      "Soriful was a pleasure to work with. He turned our outdated website into a fresh, intuitive platform that's both modern and easy to navigate. Fantastic work overall.",
     imgPath: "/images/client5.png",
   },
   {
     name: "Floyd Miles",
     mentions: "@floydmiles",
     review:
-      "Soriful’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional!",
+      "Soriful's expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He's a true professional!",
     imgPath: "/images/client4.png",
   },
   {

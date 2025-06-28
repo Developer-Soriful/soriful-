@@ -23,6 +23,11 @@ const Contact = () => {
     setLoading(true); // Show loading state
 
     try {
+      // Add recipient email to the form data
+      const formData = new FormData(formRef.current);
+      formData.append('to_email', '454250soriful@gmail.com');
+      formData.append('recipient_name', 'Soriful Islam');
+
       await emailjs.sendForm(
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
@@ -32,8 +37,10 @@ const Contact = () => {
 
       // Reset form and stop loading
       setForm({ name: "", email: "", message: "" });
+      alert("Message sent successfully! I'll get back to you soon.");
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      console.error("EmailJS Error:", error);
+      alert("Failed to send message. Please try again or contact me directly at 454250soriful@gmail.com");
     } finally {
       setLoading(false); // Always stop loading, even on error
     }
@@ -43,9 +50,18 @@ const Contact = () => {
     <section id="contact" className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
-          title="Get in Touch – Let’s Connect"
-          sub="💬 Have questions or ideas? Let’s talk! 🚀"
+          title="Get in Touch – Let's Connect"
+          sub="💬 Have questions or ideas? Let's talk! 🚀"
         />
+        
+        {/* Contact Info */}
+        <div className="text-center mb-8">
+          <p className="text-white-50 text-lg">
+            Send me a message and I'll get back to you at{" "}
+            <span className="text-blue-50 font-semibold">454250soriful@gmail.com</span>
+          </p>
+        </div>
+        
         <div className="grid-12-cols mt-16">
           <div className="xl:col-span-5">
             <div className="flex-center card-border rounded-xl p-10">
@@ -62,7 +78,7 @@ const Contact = () => {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="What’s your good name?"
+                    placeholder="What's your good name?"
                     required
                   />
                 </div>
@@ -75,7 +91,7 @@ const Contact = () => {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    placeholder="What’s your email address?"
+                    placeholder="What's your email address?"
                     required
                   />
                 </div>

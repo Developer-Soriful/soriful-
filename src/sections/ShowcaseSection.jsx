@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -7,9 +7,87 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AppShowcase = () => {
   const sectionRef = useRef(null);
-  const rydeRef = useRef(null);
-  const libraryRef = useRef(null);
-  const ycDirectoryRef = useRef(null);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const projects = [
+    {
+      id: 1,
+      name: "TutorHub",
+      image: "/images/1.png",
+      liveDemo: "https://assignment-11-19334.web.app",
+      github: "https://github.com/Developer-Soriful/Booking-Tutor",
+      description: "A responsive, interactive web application that streamlines tutor booking with real-time scheduling, secure access, and a student-focused experience.",
+      techStack: ["React", "TailwindCSS", "Firebase", "React Router", "Context API"],
+      briefDescription: "TutorHub is a comprehensive platform that connects students with qualified tutors. It features real-time scheduling, secure authentication, and an intuitive booking system designed to enhance the learning experience.",
+      challenges: [
+        "Implementing real-time scheduling without conflicts",
+        "Managing complex state for booking flows",
+        "Creating responsive design for all devices",
+        "Integrating Firebase authentication securely"
+      ],
+      improvements: [
+        "Add video calling integration",
+        "Implement payment gateway",
+        "Add review and rating system",
+        "Create mobile app version"
+      ]
+    },
+    {
+      id: 2,
+      name: "Library Management Platform",
+      image: "/images/project2.png",
+      liveDemo: "https://library-management-demo.web.app",
+      github: "https://github.com/Developer-Soriful/Library-Management",
+      description: "A comprehensive library management system with book tracking, user management, and automated notifications.",
+      techStack: ["React", "Node.js", "MongoDB", "Express.js", "JWT"],
+      briefDescription: "This platform provides librarians and users with a complete solution for managing books, memberships, and borrowing processes. It includes automated notifications and detailed reporting.",
+      challenges: [
+        "Designing efficient database schema for complex relationships",
+        "Implementing role-based access control",
+        "Creating automated notification system",
+        "Optimizing search and filter functionality"
+      ],
+      improvements: [
+        "Add barcode scanning feature",
+        "Implement advanced analytics dashboard",
+        "Create mobile app for users",
+        "Add multi-language support"
+      ]
+    },
+    {
+      id: 3,
+      name: "YC Directory",
+      image: "/images/project3.png",
+      liveDemo: "https://yc-directory-demo.web.app",
+      github: "https://github.com/Developer-Soriful/YC-Directory",
+      description: "A startup showcase platform featuring Y Combinator companies with detailed information and filtering capabilities.",
+      techStack: ["React", "TypeScript", "TailwindCSS", "Vite", "React Query"],
+      briefDescription: "YC Directory is a comprehensive showcase of Y Combinator startups, providing detailed company information, funding data, and advanced filtering options for investors and researchers.",
+      challenges: [
+        "Handling large datasets efficiently",
+        "Implementing complex filtering and search",
+        "Creating responsive design for data-heavy interface",
+        "Optimizing performance with virtual scrolling"
+      ],
+      improvements: [
+        "Add real-time data updates",
+        "Implement advanced analytics",
+        "Create investor dashboard",
+        "Add company comparison features"
+      ]
+    }
+  ];
+
+  const openProjectDetails = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeProjectDetails = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   useGSAP(() => {
     // Animation for the main section
@@ -19,10 +97,8 @@ const AppShowcase = () => {
       { opacity: 1, duration: 1.5 }
     );
 
-    // Animations for each app showcase
-    const cards = [rydeRef.current, libraryRef.current, ycDirectoryRef.current];
-
-    cards.forEach((card, index) => {
+    // Animations for each project card
+    gsap.utils.toArray(".project-card").forEach((card, index) => {
       gsap.fromTo(
         card,
         {
@@ -47,98 +123,185 @@ const AppShowcase = () => {
     <div id="work" ref={sectionRef} className="app-showcase">
       <div className="w-full">
         <div className="showcaselayout">
-          <div ref={rydeRef} className="first-project-wrapper">
-            <div className="image-wrapper">
-              <img src="/images/1.png" />
-            </div>
-            <div className="text-content">
-              <h2>
-                TutorHub — a responsive, interactive web application that
-                streamlines tutor booking with real-time scheduling, secure
-                access, and a student-focused experience.
-              </h2>
-              <p className="text-white-50 md:text-xl">
-                Developed using React for dynamic state management and
-                TailwindCSS for consistent, utility-first styling — delivering a
-                smooth, responsive, and user-friendly booking experience.
-              </p>
-            </div>
-            <div className="flex gap-3 mt-2">
-              <a
-                href="https://assignment-11-19334.web.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors text-sm font-semibold shadow"
-              >
-                Live Demo
-              </a>
-              <a
-                href="https://github.com/Developer-Soriful/Booking-Tutor"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-1 rounded bg-gray-800 text-white hover:bg-gray-900 transition-colors text-sm font-semibold shadow"
-              >
-                GitHub
-              </a>
+          {/* Main Project */}
+          <div className="first-project-wrapper">
+            <div className="project-card">
+              <div className="image-wrapper">
+                <img src={projects[0].image} alt={projects[0].name} />
+              </div>
+              <div className="text-content">
+                <h2>{projects[0].name}</h2>
+                <p className="text-white-50 md:text-xl">
+                  {projects[0].description}
+                </p>
+              </div>
+              <div className="flex gap-3 mt-4">
+                <button
+                  onClick={() => openProjectDetails(projects[0])}
+                  className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors text-sm font-semibold shadow"
+                >
+                  View Details
+                </button>
+                <a
+                  href={projects[0].liveDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700 transition-colors text-sm font-semibold shadow"
+                >
+                  Live Demo
+                </a>
+                <a
+                  href={projects[0].github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded bg-gray-800 text-white hover:bg-gray-900 transition-colors text-sm font-semibold shadow"
+                >
+                  GitHub
+                </a>
+              </div>
             </div>
           </div>
 
+          {/* Other Projects */}
           <div className="project-list-wrapper overflow-hidden">
-            <div className="project" ref={libraryRef}>
-              <div className="image-wrapper bg-[#FFEFDB]">
-                <img
-                  src="/images/project2.png"
-                  alt="Library Management Platform"
+            {projects.slice(1).map((project) => (
+              <div key={project.id} className="project project-card">
+                <div className="image-wrapper bg-[#FFEFDB]">
+                  <img src={project.image} alt={project.name} />
+                </div>
+                <h2>{project.name}</h2>
+                <p className="text-white-50 text-sm mt-2">
+                  {project.description}
+                </p>
+                <div className="flex gap-3 mt-4">
+                  <button
+                    onClick={() => openProjectDetails(project)}
+                    className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors text-sm font-semibold shadow"
+                  >
+                    View Details
+                  </button>
+                  <a
+                    href={project.liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700 transition-colors text-sm font-semibold shadow"
+                  >
+                    Live Demo
+                  </a>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 rounded bg-gray-800 text-white hover:bg-gray-900 transition-colors text-sm font-semibold shadow"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Project Details Modal */}
+      {isModalOpen && selectedProject && (
+        <div className="absolute top-[-35%] z-10 inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-gray-900 border border-gray-700 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div className="p-8">
+              {/* Header */}
+              <div className="flex justify-between items-start mb-6">
+                <h2 className="text-3xl font-bold text-white">{selectedProject.name}</h2>
+                <button
+                  onClick={closeProjectDetails}
+                  className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-800 rounded-full"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Project Image */}
+              <div className="mb-6">
+                <img 
+                  src={selectedProject.image} 
+                  alt={selectedProject.name}
+                  className="w-full h-64 object-cover rounded-xl shadow-lg"
                 />
               </div>
-              <h2>The Library Management Platform</h2>
-              <div className="flex gap-3 mt-2">
-                <a
-                  href="https://your-live-demo-link.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors text-sm font-semibold shadow"
-                >
-                  Live Demo
-                </a>
-                <a
-                  href="https://github.com/yourusername/your-repo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-1 rounded bg-gray-800 text-white hover:bg-gray-900 transition-colors text-sm font-semibold shadow"
-                >
-                  GitHub
-                </a>
-              </div>
-            </div>
 
-            <div className="project" ref={ycDirectoryRef}>
-              <div className="image-wrapper bg-[#FFE7EB]">
-                <img src="/images/project3.png" alt="YC Directory App" />
+              {/* Technology Stack */}
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-white mb-3">Technology Stack</h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.techStack.map((tech, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-blue-600/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <h2>YC Directory - A Startup Showcase App</h2>
-              <div className="flex gap-3 mt-2">
+
+              {/* Brief Description */}
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-white mb-3">Description</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  {selectedProject.briefDescription}
+                </p>
+              </div>
+
+              {/* Challenges */}
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-white mb-3">Challenges Faced</h3>
+                <ul className="space-y-2">
+                  {selectedProject.challenges.map((challenge, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <span className="text-blue-400 mt-1 text-lg">•</span>
+                      <span className="text-gray-300">{challenge}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Improvements */}
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-white mb-3">Future Improvements</h3>
+                <ul className="space-y-2">
+                  {selectedProject.improvements.map((improvement, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <span className="text-green-400 mt-1 text-lg">•</span>
+                      <span className="text-gray-300">{improvement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex gap-4 pt-6 border-t border-gray-700">
                 <a
-                  href="https://your-live-demo-link.com"
+                  href={selectedProject.liveDemo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors text-sm font-semibold shadow"
+                  className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors shadow-lg"
                 >
-                  Live Demo
+                  View Live Demo
                 </a>
                 <a
-                  href="https://github.com/yourusername/your-repo"
+                  href={selectedProject.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-1 rounded bg-gray-800 text-white hover:bg-gray-900 transition-colors text-sm font-semibold shadow"
+                  className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg transition-colors shadow-lg"
                 >
-                  GitHub
+                  View GitHub
                 </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

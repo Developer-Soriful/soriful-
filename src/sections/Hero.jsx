@@ -51,14 +51,14 @@ const Hero = () => {
             </div>
 
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Soriful, a developer based in Bangladesh with a passion
+              Hi, I'm Soriful, a developer based in Bangladesh with a passion
               for Creation.
             </p>
 
             <Button
-              text="See My Work"
+              text="Download Resume"
               className="md:w-80 md:h-16 w-60 h-12"
-              id="counter"
+              download={true}
             />
           </div>
         </header>
