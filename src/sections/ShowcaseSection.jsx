@@ -14,7 +14,7 @@ const AppShowcase = () => {
     {
       id: 1,
       name: "TutorHub",
-      image: "/images/1.png",
+      image: "/main.png",
       liveDemo: "https://assignment-11-19334.web.app",
       github: "https://github.com/Developer-Soriful/Booking-Tutor",
       description: "A responsive, interactive web application that streamlines tutor booking with real-time scheduling, secure access, and a student-focused experience.",
@@ -126,8 +126,8 @@ const AppShowcase = () => {
           {/* Main Project */}
           <div className="first-project-wrapper ">
             <div className="project project-card ">
-              <div className="image-wrapper rounded-xl bg-[#FFEFDB]">
-                <img src={projects[0].image} alt={projects[0].name} />
+              <div className="image-wrapper rounded-xl bg-[#FFEFDB] ">
+                <img className="px-10 py-6" src={projects[0].image} alt={projects[0].name} />
               </div>
               <div className="text-content">
                 <h2>{projects[0].name}</h2>
