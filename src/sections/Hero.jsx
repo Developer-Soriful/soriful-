@@ -10,21 +10,52 @@ import HeroExperience from "../components/models/hero_models/HeroExperience";
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [shouldRender3D, setShouldRender3D] = useState(false);
 
   useEffect(() => {
-    // Check if mobile device
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    // Check device capabilities
+    const checkDeviceCapabilities = () => {
+      const width = window.innerWidth;
+      const isMobileDevice = width < 768;
+      const isSmallDevice = width < 480;
+      
+      setIsMobile(isMobileDevice);
+      
+      // Don't render 3D on small devices or mobile
+      if (isSmallDevice || isMobileDevice) {
+        setShouldRender3D(false);
+        return;
+      }
+
+      // Check for WebGL support
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      
+      if (!gl) {
+        setShouldRender3D(false);
+        return;
+      }
+
+      // Check for low memory devices
+      const memoryInfo = navigator.deviceMemory || 4;
+      const cores = navigator.hardwareConcurrency || 4;
+      
+      if (memoryInfo < 2 || cores < 2) {
+        setShouldRender3D(false);
+        return;
+      }
+
+      setShouldRender3D(true);
     };
     
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
+    checkDeviceCapabilities();
+    window.addEventListener('resize', checkDeviceCapabilities);
     
     // Set loaded state after a short delay
     const timer = setTimeout(() => setIsLoaded(true), 100);
     
     return () => {
-      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener('resize', checkDeviceCapabilities);
       clearTimeout(timer);
     };
   }, []);
@@ -94,16 +125,18 @@ const Hero = () => {
           </div>
         </header>
 
-        {/* RIGHT: 3D Model or Visual - Only on desktop */}
-        <figure className="hidden lg:block">
-          <div className="hero-3d-layout">
-            <HeroExperience />
-          </div>
-        </figure>
+        {/* RIGHT: 3D Model - Only render on capable devices */}
+        {shouldRender3D && (
+          <figure className="hidden lg:block">
+            <div className="hero-3d-layout">
+              <HeroExperience />
+            </div>
+          </figure>
+        )}
       </div>
       
       {/* Optimized Mobile and Tablet Image */}
-      <div className="lg:hidden flex justify-center items-center mt-6 md:mt-8 xl:mt-10 mb-6 md:mb-8 xl:mb-10 px-4">
+      <div className="lg:hidden flex justify-center items-center mt-6 md:mt-8 xl:mt-10 mb-6 md:mb-8 xl:mb-10 px-10">
         <div className="relative w-full max-w-sm md:max-w-md group">
           {/* Enhanced background glow with multiple layers */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl group-hover:blur-2xl transition-all duration-700"></div>
@@ -234,7 +267,7 @@ const Hero = () => {
           <div className="absolute bottom-2 left-2 w-2 h-2 border-l-2 border-b-2 border-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div className="absolute bottom-2 right-2 w-2 h-2 border-r-2 border-b-2 border-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
-        </div>
+      </div>
 
       <AnimatedCounter />
     </section>

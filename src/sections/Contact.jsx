@@ -1,5 +1,6 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import { useMediaQuery } from "react-responsive";
 
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/models/contact/ContactExperience";
@@ -7,11 +8,51 @@ import ContactExperience from "../components/models/contact/ContactExperience";
 const Contact = () => {
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [shouldRender3D, setShouldRender3D] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
     message: "",
   });
+
+  // Detect device capabilities
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isLowPower = useMediaQuery({ query: "(max-width: 480px)" });
+
+  useEffect(() => {
+    const checkDeviceCapabilities = () => {
+      // Don't render 3D on very small screens or low-end devices
+      if (isLowPower || window.innerWidth < 480) {
+        setShouldRender3D(false);
+        return;
+      }
+
+      // Check for WebGL support
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      
+      if (!gl) {
+        setShouldRender3D(false);
+        return;
+      }
+
+      // Check for low memory devices
+      const memoryInfo = navigator.deviceMemory || 4;
+      const cores = navigator.hardwareConcurrency || 4;
+      
+      if (memoryInfo < 2 || cores < 2) {
+        setShouldRender3D(false);
+        return;
+      }
+
+      setShouldRender3D(true);
+    };
+
+    checkDeviceCapabilities();
+    window.addEventListener('resize', checkDeviceCapabilities);
+    
+    return () => window.removeEventListener('resize', checkDeviceCapabilities);
+  }, [isLowPower]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -123,9 +164,20 @@ const Contact = () => {
               </form>
             </div>
           </div>
+          
           <div className="xl:col-span-7 min-h-96">
             <div className="bg-[#cd7c2e] w-full h-full hover:cursor-grab rounded-3xl overflow-hidden">
-              <ContactExperience />
+              {shouldRender3D ? (
+                <ContactExperience />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-orange-900/20 to-yellow-900/20">
+                  <div className="text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 border-4 border-orange-500/30 border-t-orange-500 rounded-full animate-spin"></div>
+                    <p className="text-orange-50 text-sm">3D Computer Model</p>
+                    <p className="text-orange-50/70 text-xs mt-1">Optimized for desktop</p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
