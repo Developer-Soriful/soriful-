@@ -60,7 +60,7 @@ const AppShowcase = () => {
       name: "App Store Hub",
       image: "/App_store.png",
       liveDemo: "https://spontaneous-gumption-cdc712.netlify.app/",
-      github: "https://github.com/Developer-Soriful/App-Store-Hub",
+      github: "https://github.com/Developer-Soriful/App-Store",
       description: "A comprehensive app discovery platform featuring mobile applications with detailed information, ratings, and download statistics.",
       techStack: ["React", "TailwindCSS", "Vite"],
       briefDescription: "App Store Hub is a comprehensive platform for discovering and exploring mobile applications. It provides detailed app information, user ratings, download statistics, and advanced filtering options for users to find the perfect apps for their needs.",
