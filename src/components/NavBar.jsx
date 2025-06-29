@@ -96,13 +96,18 @@ const NavBar = () => {
 
       {/* Mobile Navigation Menu */}
       <nav 
-        className={`lg:hidden fixed top-0 right-0 h-full w-80 bg-black-100 border-l border-white/10 z-[80] transform transition-transform duration-300 ease-in-out shadow-2xl ${
+        className={`lg:hidden fixed top-0 right-0 h-full w-80 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 backdrop-blur-xl border-l border-slate-600/30 z-[80] transform transition-transform duration-300 ease-in-out shadow-2xl ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
+        style={{
+          background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 50%, rgba(15, 23, 42, 0.95) 100%)',
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)'
+        }}
       >
         <div className="flex flex-col h-full">
           {/* Mobile Menu Header */}
-          <div className="flex items-center justify-between p-6 border-b border-white/10">
+          <div className="flex items-center justify-between p-6 border-b border-slate-600/30 bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm">
             <h3 className="text-xl font-bold text-white">Menu</h3>
             <button
               onClick={closeMobileMenu}
@@ -115,14 +120,14 @@ const NavBar = () => {
           </div>
 
           {/* Mobile Navigation Links */}
-          <div className="flex-1 p-6">
+          <div className="flex-1 p-6 backdrop-blur-2xl bg-black/70">
             <ul className="space-y-6">
               {navLinks.map(({ link, name }, index) => (
                 <li key={name}>
                   <a 
                     href={link}
                     onClick={closeMobileMenu}
-                    className="block text-lg font-medium text-white hover:text-blue-50 transition-all duration-300 transform hover:translate-x-2 hover:scale-105 cursor-pointer py-2 px-3 rounded-lg hover:bg-white/5"
+                    className="block text-lg font-medium text-white hover:text-blue-50 transition-all duration-300 transform hover:translate-x-2 hover:scale-105 cursor-pointer py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-slate-700/50 hover:to-slate-600/50 backdrop-blur-sm"
                     style={{
                       animationDelay: `${index * 100}ms`
                     }}
@@ -135,7 +140,7 @@ const NavBar = () => {
           </div>
 
           {/* Mobile Contact Button */}
-          <div className="p-6 border-t border-white/10">
+          <div className="p-6 border-t border-slate-600/30 bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm">
             <a 
               href="#contact"
               onClick={closeMobileMenu}
