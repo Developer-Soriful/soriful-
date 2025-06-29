@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import Navbar from "./components/NavBar";
+import PerformanceOptimizer from "./components/PerformanceOptimizer";
 
 // Lazy load components for better performance
 const Hero = lazy(() => import("./sections/Hero"));
@@ -23,22 +24,22 @@ const LoadingSpinner = () => (
 );
 
 const App = () => (
-
-  <div className="will-change-transform">
-    <Navbar />
-    <Suspense fallback={<LoadingSpinner />}>
-      <Hero />
-      <AboutMe />
-      <ShowcaseSection />
-      <LogoShowcase />
-      <FeatureCards />
-      <TechStack />
-      <Experience />
-      <Contact />
-      <Footer />
-    </Suspense>
-  </div>
-
+  <PerformanceOptimizer>
+    <div className="will-change-transform">
+      <Navbar />
+      <Suspense fallback={<LoadingSpinner />}>
+        <Hero />
+        <AboutMe />
+        <ShowcaseSection />
+        <LogoShowcase />
+        <FeatureCards />
+        <TechStack />
+        <Experience />
+        <Contact />
+        <Footer />
+      </Suspense>
+    </div>
+  </PerformanceOptimizer>
 );
 
 export default App;

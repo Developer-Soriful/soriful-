@@ -81,7 +81,7 @@ section {
   }
 
   .hero-layout {
-    @apply relative z-10 xl:mt-20 mt-20 md:mt-32 md:h-dvh h-auto min-h-[60vh] flex xl:items-center items-start justify-center;
+    @apply relative z-10 xl:mt-20 mt-20 md:mt-32 h-auto xl:min-h-[70vh] min-h-fit flex xl:items-center items-start justify-center py-6 md:py-8 xl:py-10;
   }
 
   .hero-text {
@@ -468,5 +468,211 @@ section {
 }
 
 .card:hover::before {
+  opacity: 1;
+}
+
+/* Professional Image Animations */
+.floating-particle {
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-particle:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.floating-particle:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.floating-particle:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.floating-particle:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-10px) rotate(90deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-5px) rotate(180deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-15px) rotate(270deg);
+    opacity: 0.8;
+  }
+}
+
+/* Professional Image Hover Effects */
+.professional-image {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #0e0e10 0%, #1c1c21 50%, #282732 100%);
+}
+
+.professional-image:hover {
+  transform: scale(1.05) translateY(-8px);
+  filter: brightness(1.1) contrast(1.05);
+  background: linear-gradient(135deg, #0e0e10 0%, #1c1c21 60%, #282732 100%);
+}
+
+/* Enhanced Glow Effects */
+.professional-image::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899, #06b6d4);
+  border-radius: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.professional-image:hover::before {
+  opacity: 0.3;
+}
+
+/* Badge Animations */
+.professional-image:hover .absolute {
+  animation: badgePop 0.6s ease-out forwards;
+}
+
+@keyframes badgePop {
+  0% {
+    transform: scale(0) rotate(var(--rotation, 0deg));
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(var(--rotation, 0deg));
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) rotate(var(--rotation, 0deg));
+    opacity: 1;
+  }
+}
+
+/* Corner Decorations Animation */
+.professional-image:hover .absolute[class*="border-l-2"] {
+  animation: cornerGlow 1s ease-in-out infinite alternate;
+}
+
+@keyframes cornerGlow {
+  0% {
+    opacity: 0.5;
+    box-shadow: 0 0 5px currentColor;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 15px currentColor;
+  }
+}
+
+/* Bottom Accent Line Animation */
+.professional-image:hover .absolute[class*="bg-gradient-to-r"][class*="rounded-full"] {
+  animation: lineExpand 0.8s ease-out forwards;
+}
+
+@keyframes lineExpand {
+  0% {
+    width: 5rem;
+    opacity: 0;
+  }
+  50% {
+    width: 6rem;
+    opacity: 0.5;
+  }
+  100% {
+    width: 8rem;
+    opacity: 1;
+  }
+}
+
+/* Skill Text Animations - Only for professional image */
+.professional-image:hover .absolute[class*="text-blue-400"][class*="opacity-0"],
+.professional-image:hover .absolute[class*="text-purple-400"][class*="opacity-0"],
+.professional-image:hover .absolute[class*="text-pink-400"][class*="opacity-0"],
+.professional-image:hover .absolute[class*="text-cyan-400"][class*="opacity-0"] {
+  animation: skillTextFloat 2s ease-in-out infinite;
+}
+
+@keyframes skillTextFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translateY(-5px) rotate(2deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-3px) rotate(-1deg);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateY(-7px) rotate(1deg);
+    opacity: 1;
+  }
+}
+
+/* Rotating Skill Icons Animation - Only for professional image */
+.professional-image:hover .absolute[class*="bg-gradient-to-r"][class*="rounded-full"][class*="animate-spin"][class*="opacity-0"] {
+  animation: skillIconRotate 3s linear infinite;
+}
+
+@keyframes skillIconRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Code Elements Animation - Only for professional image */
+.professional-image:hover .absolute[class*="text-green-400"][class*="opacity-0"],
+.professional-image:hover .absolute[class*="text-yellow-400"][class*="opacity-0"] {
+  animation: codeElementGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes codeElementGlow {
+  0%, 100% {
+    opacity: 0.7;
+    text-shadow: 0 0 5px currentColor;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 15px currentColor, 0 0 25px currentColor;
+  }
+}
+
+/* Professional Skill Matrix - Only for professional image */
+.professional-image::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.professional-image:hover::after {
   opacity: 1;
 }
