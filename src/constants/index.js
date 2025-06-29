@@ -167,44 +167,46 @@ const techStackIcons = [
 const expCards = [
   {
     review:
-      "Soriful brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
+      "Soriful Islam demonstrates exceptional frontend development skills with a deep passion for creating intuitive user experiences. His attention to detail and modern design principles consistently deliver outstanding results.",
     imgPath: "/images/logos/self-learning.png",
     logoPath: "/images/logos/self-learning.png",
     title: "Frontend Developer",
     date: "present",
     responsibilities: [
-      "Independently developed and refined multiple user-facing features through self-initiated projects using modern front-end technologies.",
-      "Consistently collaborated with online communities and design inspiration platforms to align personal projects with current UI/UX best practices.",
-      "Focused on writing clean, scalable, and performance-optimized code while actively exploring advanced topics like state management, authentication, animations, and responsive design.",
+      "Developed responsive and modern user interfaces using React.js, JavaScript, and Tailwind CSS with a focus on user experience and performance optimization.",
+      "Implemented advanced frontend features including state management, authentication systems, and smooth animations to enhance user engagement.",
+      "Collaborated with design communities and continuously learned new technologies to stay updated with the latest frontend development trends and best practices.",
+      "Built multiple portfolio projects showcasing expertise in modern web development, responsive design, and interactive user interfaces.",
     ],
   },
   {
     review:
-      "Soriful's contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
+      "Soriful Islam's MERN stack expertise is exceptional. He consistently delivers robust full-stack solutions with clean architecture and excellent problem-solving skills. His dedication to learning and implementation is truly commendable.",
     imgPath: "/images/logos/javascript.png",
     logoPath: "/images/logos/javascript.png",
     title: "MERN Stack Developer",
     date: "present",
     responsibilities: [
-      "Built and maintained full-stack web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js) through self-driven projects.",
-      "Integrated RESTful APIs and handled complex data flows between frontend and backend components efficiently.",
-      "Designed responsive and user-centric interfaces while managing application state using tools like React Context API and Redux.",
-      "Explored authentication, authorization, and secure routing in MERN applications using JWT and Firebase Auth.",
-      "Continuously improved project structure and performance by learning and applying industry-standard practices, aiming to contribute to professional MERN-based systems in the near future, In Shaa Allah.",
+      "Built complete full-stack web applications using MongoDB, Express.js, React.js, and Node.js with RESTful API integration and database management.",
+      "Implemented secure authentication and authorization systems using JWT tokens and Firebase Auth for user management and data protection.",
+      "Designed and developed responsive user interfaces with modern UI/UX principles, ensuring cross-browser compatibility and mobile-first design.",
+      "Managed application state efficiently using React Context API and Redux, implementing complex data flows between frontend and backend components.",
+      "Continuously improved code quality and project structure by following industry best practices, code reviews, and performance optimization techniques.",
     ],
   },
-  // something change 
   {
     review:
-      "Soriful's work on our C++ backend systems brought a high level of performance and reliability. He delivered optimized solutions that enhanced system efficiency and aligned perfectly with our technical goals.",
+      "Soriful's C++ programming skills are outstanding. He solved numerous complex algorithmic problems and demonstrated strong logical thinking and problem-solving abilities. His foundation in C++ has greatly enhanced his overall programming expertise.",
     imgPath: "/images/logos/cpp.png",
     logoPath: "/images/logos/cpp.png",
-    title: "C++",
+    title: "C++ Learner",
     date: "Aug 2023 - April 2024",
     responsibilities: [
-      "Developed high-performance system-level applications using C++, focusing on memory efficiency and speed.",
-      "Implemented complex algorithms and data structures to optimize backend logic and processing time.",
-      "Collaborated with cross-functional teams to integrate C++ modules with frontend interfaces and other services.",
+      "Solved 200+ algorithmic problems and coding challenges using C++, developing strong problem-solving and logical thinking skills.",
+      "Implemented complex data structures (arrays, linked lists, trees, graphs) and algorithms (sorting, searching, dynamic programming) efficiently.",
+      "Developed system-level applications focusing on memory management, performance optimization, and efficient code execution.",
+      "Enhanced understanding of fundamental programming concepts including pointers, memory allocation, and object-oriented programming principles.",
+      "Built a solid foundation in programming logic and computational thinking that has been invaluable for web development and software engineering.",
     ],
   },
 ];
