@@ -22,8 +22,8 @@ const TechStack = () => {
         { name: "React", level: 85, icon: "/images/logos/react.png" },
         { name: "JavaScript", level: 90, icon: "/images/logos/js.png" },
         { name: "Tailwind CSS", level: 88, icon: "/images/logos/tailwind.png" },
-        { name: "HTML5", level: 95, icon: "/images/logos/html.png" },
-        { name: "CSS3", level: 92, icon: "/images/logos/css.png" },
+        { name: "HTML5", level: 95, icon: "/images/logos/html.svg" },
+        { name: "CSS3", level: 92, icon: "/images/logos/css.svg" },
       ]
     },
     {
@@ -33,20 +33,20 @@ const TechStack = () => {
         { name: "Node.js", level: 80, icon: "/images/logos/node.png" },
         { name: "Express.js", level: 75, icon: "/images/logos/expressjs.png" },
         { name: "MongoDB", level: 70, icon: "/images/logos/mongodb.png" },
-        { name: "REST APIs", level: 78, icon: "/images/logos/api.png" },
-        { name: "JWT Auth", level: 72, icon: "/images/logos/jwt.png" },
+        { name: "REST APIs", level: 78, icon: "/images/logos/api.svg" },
+        { name: "JWT Auth", level: 72, icon: "/images/logos/jwt.svg" },
       ]
     },
     {
       id: "tools",
       category: "Tools & Others",
       skills: [
-        { name: "VS Code", level: 95, icon: "/images/logos/vscode.png" },
-        { name: "Git", level: 78, icon: "/images/logos/git.png" },
-        { name: "Coursera AI", level: 85, icon: "/images/logos/coursera.png" },
+        { name: "VS Code", level: 95, icon: "/images/logos/vscode.svg" },
+        { name: "Git", level: 78, icon: "/images/logos/git.svg" },
+        { name: "Coursera AI", level: 85, icon: "/images/logos/coursera.svg" },
         { name: "Firebase", level: 72, icon: "/images/logos/firebase.png" },
         { name: "C++", level: 65, icon: "/images/logos/cpp.png" },
-        { name: "GitHub", level: 80, icon: "/images/logos/github.png" },
+        { name: "GitHub", level: 80, icon: "/images/logos/github.svg" },
       ]
     }
   ];
