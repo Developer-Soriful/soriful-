@@ -17,12 +17,13 @@ const Hero = () => {
     const checkDeviceCapabilities = () => {
       const width = window.innerWidth;
       const isMobileDevice = width < 768;
+      const isMediumDevice = width < 1024;
       const isSmallDevice = width < 480;
       
       setIsMobile(isMobileDevice);
       
-      // Don't render 3D on small devices or mobile
-      if (isSmallDevice || isMobileDevice) {
+      // Don't render 3D on small, mobile, or medium devices
+      if (isSmallDevice || isMobileDevice || isMediumDevice) {
         setShouldRender3D(false);
         return;
       }
@@ -125,9 +126,9 @@ const Hero = () => {
           </div>
         </header>
 
-        {/* RIGHT: 3D Model - Only render on capable devices */}
+        {/* RIGHT: 3D Model - Only render on large devices (xl and above) */}
         {shouldRender3D && (
-          <figure className="hidden lg:block">
+          <figure className="hidden xl:block">
             <div className="hero-3d-layout">
               <HeroExperience />
             </div>
@@ -135,8 +136,8 @@ const Hero = () => {
         )}
       </div>
       
-      {/* Optimized Mobile and Tablet Image */}
-      <div className="lg:hidden flex justify-center items-center mt-6 md:mt-8 xl:mt-10 mb-6 md:mb-8 xl:mb-10 px-10">
+      {/* Optimized Mobile and Tablet Image - Show on all devices except xl */}
+      <div className="xl:hidden flex justify-center items-center mt-6 md:mt-8 xl:mt-10 mb-6 md:mb-8 xl:mb-10 px-10">
         <div className="relative w-full max-w-sm md:max-w-md group">
           {/* Enhanced background glow with multiple layers */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl group-hover:blur-2xl transition-all duration-700"></div>
