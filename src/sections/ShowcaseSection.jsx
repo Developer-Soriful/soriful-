@@ -14,8 +14,8 @@ const AppShowcase = () => {
     {
       id: 1,
       name: "TutorHub",
-      image: "/main.png",
-      liveDemo: "https://assignment-11-19334.web.app",
+      image: "/tutorhub.png",
+      liveDemo: "https://tutor-booking-jade.vercel.app/",
       github: "https://github.com/Developer-Soriful/Booking-Tutor",
       description: "A responsive, interactive web application that streamlines tutor booking with real-time scheduling, secure access, and a student-focused experience.",
       techStack: ["React", "TailwindCSS", "Firebase", "React Router", "Context API"],
