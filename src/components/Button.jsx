@@ -26,7 +26,7 @@ const Button = ({ text, className, id, download }) => {
   return (
     <a
       href={download ? "/resume.pdf" : "#"}
-      download={download ? "Soriful_Islam_Resume.pdf" : undefined}
+      download={download ? true : undefined}
       onClick={handleClick}
       className={`${className ?? ""} cta-wrapper`} // Add base + extra class names
     >
