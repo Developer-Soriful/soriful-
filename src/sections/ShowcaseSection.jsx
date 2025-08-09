@@ -13,70 +13,91 @@ const AppShowcase = () => {
   const projects = [
     {
       id: 1,
+      name: "ScholarFlow",
+      image: "/Scholarship.png",
+      liveDemo: "https://scholarship-management-one.vercel.app/",
+      github: "https://github.com/Developer-Soriful/Scholarship-Management",
+      description:
+        "A 3-role MERN-based scholarship management system that streamlines applications, reviewer workflows, and award decisions with secure RBAC, real-time status, and analytics.",
+      techStack: [
+        "React",
+        "TailwindCSS",
+        "React Router",
+        "Context API",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JWT",
+      ],
+      briefDescription:
+        "ScholarFlow digitizes the entire scholarship lifecycle—from eligibility checks to review and disbursement. It provides role-based dashboards for Admin, Reviewer, and Applicants with secure authentication and an intuitive, scalable workflow.",
+      challenges: [
+        "Designing flexible eligibility rules and validation",
+        "Handling concurrent reviews and avoiding conflicts",
+        "Secure document uploads and access control",
+        "Optimizing queries and pagination for large application datasets",
+      ],
+      improvements: [
+        "Integrate payment/disbursement gateway with auditing",
+        "Add multi-language support (Bangla/English)",
+        "Implement AI-assisted eligibility pre-check & scoring hints",
+        "Build a mobile app (React Native) and push notifications",
+      ],
+    },
+    {
+      id: 2,
       name: "TutorHub",
       image: "/tutorhub.png",
       liveDemo: "https://tutor-booking-jade.vercel.app/",
       github: "https://github.com/Developer-Soriful/Booking-Tutor",
-      description: "A responsive, interactive web application that streamlines tutor booking with real-time scheduling, secure access, and a student-focused experience.",
-      techStack: ["React", "TailwindCSS", "Firebase", "React Router", "Context API"],
-      briefDescription: "TutorHub is a comprehensive platform that connects students with qualified tutors. It features real-time scheduling, secure authentication, and an intuitive booking system designed to enhance the learning experience.",
+      description:
+        "A responsive, interactive web application that streamlines tutor booking with real-time scheduling, secure access, and a student-focused experience.",
+      techStack: [
+        "React",
+        "TailwindCSS",
+        "Firebase",
+        "React Router",
+        "Context API",
+      ],
+      briefDescription:
+        "TutorHub is a comprehensive platform that connects students with qualified tutors. It features real-time scheduling, secure authentication, and an intuitive booking system designed to enhance the learning experience.",
       challenges: [
         "Implementing real-time scheduling without conflicts",
         "Managing complex state for booking flows",
         "Creating responsive design for all devices",
-        "Integrating Firebase authentication securely"
+        "Integrating Firebase authentication securely",
       ],
       improvements: [
         "Add video calling integration",
         "Implement payment gateway",
         "Add review and rating system",
-        "Create mobile app version"
-      ]
+        "Create mobile app version",
+      ],
     },
     {
-      id: 2,
+      id: 3,
       name: "Recipe Book Hub",
-      image: "/Book_recipe.png",
+      image: "/recipebook.png",
       liveDemo: "https://recipe-book-app-steel.vercel.app",
       github: "https://github.com/Developer-Soriful/Recipe-book-app",
-      description: "A comprehensive recipe management platform with cooking instructions, ingredient tracking, and meal planning features.",
+      description:
+        "A comprehensive recipe management platform with cooking instructions, ingredient tracking, and meal planning features.",
       techStack: ["React", "Node.js", "MongoDB", "Express.js", "JWT"],
-      briefDescription: "Recipe Book Hub is a complete solution for food enthusiasts to discover, save, and share recipes. It features detailed cooking instructions, ingredient management, nutritional information, and meal planning capabilities with user-friendly interface.",
+      briefDescription:
+        "Recipe Book Hub is a complete solution for food enthusiasts to discover, save, and share recipes. It features detailed cooking instructions, ingredient management, nutritional information, and meal planning capabilities with user-friendly interface.",
       challenges: [
         "Designing efficient database schema for recipe ingredients and instructions",
         "Implementing user authentication and recipe sharing system",
         "Creating responsive design for recipe cards and cooking steps",
-        "Optimizing search and filter functionality for recipes"
+        "Optimizing search and filter functionality for recipes",
       ],
       improvements: [
         "Add recipe rating and review system",
         "Implement meal planning calendar",
         "Create shopping list generator",
-        "Add recipe video tutorials"
-      ]
-    },
-    {
-      id: 3,
-      name: "App Store Hub",
-      image: "/App_store.png",
-      liveDemo: "https://spontaneous-gumption-cdc712.netlify.app/",
-      github: "https://github.com/Developer-Soriful/App-Store",
-      description: "A comprehensive app discovery platform featuring mobile applications with detailed information, ratings, and download statistics.",
-      techStack: ["React", "TailwindCSS", "Vite"],
-      briefDescription: "App Store Hub is a comprehensive platform for discovering and exploring mobile applications. It provides detailed app information, user ratings, download statistics, and advanced filtering options for users to find the perfect apps for their needs.",
-      challenges: [
-        "Handling large datasets of app information efficiently",
-        "Implementing complex filtering and search for apps",
-        "Creating responsive design for app showcase interface",
-        "Optimizing performance with virtual scrolling for app lists"
+        "Add recipe video tutorials",
       ],
-      improvements: [
-        "Add real-time app data updates",
-        "Implement advanced app analytics",
-        "Create developer dashboard",
-        "Add app comparison features"
-      ]
-    }
+    },
   ];
 
   const openProjectDetails = (project) => {
@@ -125,9 +146,13 @@ const AppShowcase = () => {
         <div className="showcaselayout">
           {/* Main Project */}
           <div className="first-project-wrapper ">
-            <div className="project project-card ">
-              <div className="image-wrapper rounded-xl bg-[#FFEFDB] ">
-                <img className="px-10 py-6" src={projects[0].image} alt={projects[0].name} />
+            <div className="project project-card">
+              <div className="image-wrapper rounded-xl bg-[#FFEFDB]">
+                <img
+                  className="py-6 px-2"
+                  src={projects[0].image}
+                  alt={projects[0].name}
+                />
               </div>
               <div className="text-content">
                 <h2>{projects[0].name}</h2>
@@ -210,13 +235,25 @@ const AppShowcase = () => {
             <div className="p-8">
               {/* Header */}
               <div className="flex justify-between items-start mb-6">
-                <h2 className="text-3xl font-bold text-white">{selectedProject.name}</h2>
+                <h2 className="text-3xl font-bold text-white">
+                  {selectedProject.name}
+                </h2>
                 <button
                   onClick={closeProjectDetails}
                   className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-800 rounded-full"
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 </button>
               </div>
@@ -232,7 +269,9 @@ const AppShowcase = () => {
 
               {/* Technology Stack */}
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-white mb-3">Technology Stack</h3>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Technology Stack
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.techStack.map((tech, index) => (
                     <span
@@ -247,7 +286,9 @@ const AppShowcase = () => {
 
               {/* Brief Description */}
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-white mb-3">Description</h3>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Description
+                </h3>
                 <p className="text-gray-300 leading-relaxed">
                   {selectedProject.briefDescription}
                 </p>
@@ -255,7 +296,9 @@ const AppShowcase = () => {
 
               {/* Challenges */}
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-white mb-3">Challenges Faced</h3>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Challenges Faced
+                </h3>
                 <ul className="space-y-2">
                   {selectedProject.challenges.map((challenge, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -268,7 +311,9 @@ const AppShowcase = () => {
 
               {/* Improvements */}
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-white mb-3">Future Improvements</h3>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Future Improvements
+                </h3>
                 <ul className="space-y-2">
                   {selectedProject.improvements.map((improvement, index) => (
                     <li key={index} className="flex items-start gap-3">
