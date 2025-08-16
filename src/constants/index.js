@@ -166,10 +166,10 @@ const expCards = [
       "Soriful Islam demonstrates exceptional frontend development skills with a deep passion for creating intuitive user experiences. His attention to detail and modern design principles consistently deliver outstanding results.",
     imgPath: "/images/logos/self-learning.png",
     logoPath: "/images/logos/self-learning.png",
-    title: "Frontend Developer",
+    title: "Frontend Developer At Crediometer",
     date: "present",
     responsibilities: [
-      "Developed responsive and modern user interfaces using React.js, JavaScript, and Tailwind CSS with a focus on user experience and performance optimization.",
+      "Developed responsive and modern user interfaces using React.js, JavaScript, AntD and Tailwind CSS with a focus on user experience and performance optimization.",
       "Implemented advanced frontend features including state management, authentication systems, and smooth animations to enhance user engagement.",
       "Collaborated with design communities and continuously learned new technologies to stay updated with the latest frontend development trends and best practices.",
       "Built multiple portfolio projects showcasing expertise in modern web development, responsive design, and interactive user interfaces.",

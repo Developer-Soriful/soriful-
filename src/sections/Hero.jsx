@@ -308,7 +308,7 @@ const Hero = () => {
             className="absolute bottom-1/2 -left-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white text-xs px-2 py-1 rounded-full font-medium shadow-lg transform -rotate-90 opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:rotate-0 border border-white/20 backdrop-blur-sm"
             style={{ "--rotation": "-90deg" }}
           >
-            3+ Years
+            2+ Years
           </div>
 
           {/* Skills indicator */}
